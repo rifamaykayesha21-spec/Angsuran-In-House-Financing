@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pelanggan - IHF Piutang</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" id="app-nav"></nav>
+    <main>
+      <div class="page-head"><h2>Pelanggan</h2><button class="btn primary" id="btn-add">+ Pelanggan</button></div>
+      <div class="card"><div class="toolbar"><input id="search" placeholder="Cari nama / NIK / kode..." /></div><div class="table-wrap"><table><thead><tr><th>Kode</th><th>Nama</th><th>NIK</th><th>Telepon</th><th>Pekerjaan</th><th class=num>Penghasilan</th><th>Aksi</th></tr></thead><tbody id="rows"><tr><td colspan="7" class="muted">Memuat...</td></tr></tbody></table></div></div>
+    </main>
+  </div>
+  <div class="modal-bg" id="modal"><form class="modal" id="form">
+    <h3 id="modal-title">Pelanggan</h3><input type="hidden" id="customer_id" />
+    <div class="form-grid">
+      <div class="full"><label>Nama lengkap</label><input id="full_name" required /></div>
+      <div><label>NIK (16 digit)</label><input id="nik" required pattern="[0-9]{16}" maxlength="16" /></div>
+      <div><label>Telepon</label><input id="phone" /></div>
+      <div><label>Pekerjaan</label><input id="occupation" /></div>
+      <div><label>Penghasilan / bulan</label><input id="monthly_income" type="number" min="0" value="0" /></div>
+      <div class="full"><label>Alamat</label><textarea id="address" rows="2"></textarea></div>
+    </div>
+    <div class="actions"><button type="button" class="btn" id="btn-cancel">Batal</button><button class="btn primary">Simpan</button></div>
+  </form></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/customers.js"></script>
+</body>
+</html>

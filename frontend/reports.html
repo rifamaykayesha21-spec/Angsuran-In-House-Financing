@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laporan - IHF Piutang</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" id="app-nav"></nav>
+    <main>
+      <div class="page-head"><h2>Laporan</h2></div>
+      <div class="tabs" id="tabs">
+        <button data-tab="aging" class="active">Umur Piutang</button>
+        <button data-tab="tb">Neraca Saldo</button>
+        <button data-tab="gl">Jurnal / Buku Besar</button>
+      </div>
+      <div class="card" id="report"></div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/reports.js"></script>
+</body>
+</html>

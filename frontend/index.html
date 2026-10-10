@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - IHF Piutang</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" id="app-nav"></nav>
+    <main>
+      <div class="page-head"><h2>Dashboard</h2></div>
+      <div class="grid kpis" id="kpis"></div>
+      <div class="card" style="margin-top:18px"><h3>Komposisi Umur Piutang</h3><div id="aging-bar"></div></div>
+      <div class="card"><h3>Kontrak Terlambat Teratas</h3><div class="table-wrap"><table><thead><tr><th>No. Kontrak</th><th>Pelanggan</th><th class=num>Hari Terlambat</th><th class=num>Tunggakan</th><th class=num>Sisa Piutang</th></tr></thead><tbody id="overdue-body"><tr><td colspan="5" class="muted">Memuat...</td></tr></tbody></table></div></div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

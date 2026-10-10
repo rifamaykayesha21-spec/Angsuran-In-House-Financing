@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontrak Piutang - IHF Piutang</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" id="app-nav"></nav>
+    <main>
+      <div class="page-head"><h2>Kontrak Piutang</h2><button class="btn primary" id="btn-add">+ Kontrak Baru</button></div>
+<div class="card"><div class="table-wrap"><table><thead><tr><th>No. Kontrak</th><th>Tanggal</th><th>Pelanggan</th><th>Produk</th><th class=num>Total Piutang</th><th class=num>Terbayar</th><th class=num>Sisa</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="rows"><tr><td colspan="9" class="muted">Memuat...</td></tr></tbody></table></div></div>
+    </main>
+  </div>
+  <div class="modal-bg" id="modal"><form class="modal" id="form">
+    <h3>Kontrak Pembiayaan Baru</h3>
+    <div class="form-grid">
+      <div><label>Pelanggan</label><select id="customer_id" required></select></div>
+      <div><label>Produk</label><select id="product_id" required></select></div>
+      <div><label>Tanggal kontrak</label><input id="contract_date" type="date" required /></div>
+      <div><label>Uang muka (DP)</label><input id="down_payment" type="number" min="0" value="0" required /></div>
+      <div><label>Bunga flat (% / tahun)</label><input id="annual_rate" type="number" step="0.01" min="0" value="12" required /></div>
+      <div><label>Tenor (bulan)</label><input id="tenor" type="number" min="1" max="120" value="12" required /></div>
+      <div><label>Denda (% / hari)</label><input id="late_fee_rate" type="number" step="0.001" min="0" value="0.1" required /></div>
+    </div>
+    <div class="info" id="simulation">Isi form untuk melihat simulasi angsuran.</div>
+    <div class="actions"><button type="button" class="btn" id="btn-cancel">Batal</button><button class="btn primary" id="btn-save">Buat Kontrak</button></div>
+  </form></div>
+  <div class="modal-bg" id="modal-detail"><div class="modal wide">
+    <h3 id="detail-title">Jadwal Angsuran</h3><div id="detail-info" class="muted"></div>
+    <div class="table-wrap" style="margin-top:12px"><table><thead><tr><th>#</th><th>Jatuh tempo</th><th class="num">Pokok</th><th class="num">Bunga</th><th class="num">Tagihan</th><th class="num">Terbayar</th><th>Status</th></tr></thead><tbody id="detail-rows"></tbody></table></div>
+    <div class="actions"><button class="btn" id="btn-close-detail">Tutup</button></div>
+  </div></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/contracts.js"></script>
+</body>
+</html>
