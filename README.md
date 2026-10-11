@@ -1,8 +1,29 @@
 # Sistem Akuntansi Piutang & Angsuran – In House Financing
 
+# UTS Mata Kuliah Pengkodean dan Pemrograman - S1 Akuntansi
+
+Aplikasi berbasis web sederhana untuk mengelola dan mencatat transaksi piutang penjualan rumah dengan skema pembayaran *in-house financing* (angsuran langsung ke pengembang/developer).
+
+---
+
+## 🌟 Fitur Utama
+
+- **Buku Besar Pembantu Piutang (Subsidiary Ledger):** Menampilkan daftar jadwal angsuran pelanggan beserta alokasi pembayaran pokok, bunga, total tagihan, dan status pelunasan.
+- **Pencatatan Pembayaran Angsuran:** Form input transaksi pembayaran angsuran dengan nomor kwitansi otomatis dan jumlah bayar yang fleksibel.
+- **Otomasi Status Pelunasan:** Menggunakan database trigger PostgreSQL untuk secara otomatis memperbarui status tagihan pada `jadwal_angsuran` menjadi **LUNAS** ketika transaksi pembayaran diinput.
+- **Integrasi Real-time:** Terhubung langsung ke Supabase backend database via Supabase JS Client (CDN).
+
+---
+
+## 🛠️ Stack Teknologi
+
+- **Frontend:** Vanilla HTML5, CSS3, JavaScript (ES6)
+- **Backend / Database:** Supabase (PostgreSQL Database, Stored Procedures, & Triggers)
+- **Deployment:** GitHub Pages
+
 Proyek pembelajaran database: penjualan kredit dengan pembiayaan internal (bunga flat), jadwal angsuran, denda keterlambatan, dan jurnal akuntansi otomatis.
 
-**Stack:** Supabase (PostgreSQL + Auth + RLS) · HTML · CSS · JavaScript (tanpa framework/build).
+---
 
 ## Struktur folder
 
@@ -32,6 +53,8 @@ inhouse-financing-ar/
             contracts.js payments.js reports.js
 ```
 
+---
+
 ## Cara menjalankan
 
 1. **Supabase**: buat project di [supabase.com](https://supabase.com).
@@ -48,6 +71,8 @@ inhouse-financing-ar/
    ```
    **Peringatan:** karena tanpa login, siapa pun yang tahu URL Supabase + anon key (terlihat di repo/halaman) bisa membaca dan mengubah data. Pakai hanya untuk data latihan. **Jangan** pernah menaruh `service_role` key di repo. Untuk hosting gratis, aktifkan GitHub Pages dari folder `/frontend` (atau deploy ke Netlify/Vercel).
 
+---
+
 ## Alur kerja sistem
 
 1. Input **Pelanggan** dan **Produk**.
@@ -55,12 +80,16 @@ inhouse-financing-ar/
 3. **Pembayaran** → `process_payment()` menghitung denda, mengalokasikan ke angsuran tertua (denda → bunga → pokok), memperbarui status, dan membuat jurnal kas.
 4. **Laporan**: umur piutang, neraca saldo, jurnal.
 
+---
+
 ## Rumus
 
 - Pokok pembiayaan = harga tunai − DP
 - Total bunga = pokok × bunga%/tahun × tenor/12 (flat)
 - Total piutang = pokok + bunga; angsuran = total piutang ÷ tenor (selisih pembulatan di angsuran terakhir)
 - Denda = sisa tagihan × denda%/hari × hari terlambat
+
+---
 
 ## Batasan (disengaja, untuk latihan)
 
