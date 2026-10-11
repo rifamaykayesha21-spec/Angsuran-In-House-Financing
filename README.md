@@ -2,7 +2,7 @@
 
 UTS Mata Kuliah Pengkodean dan Pemrograman - S1 Akuntansi
 
-📌 Demo Aplikasi: https://rifamaykayesha21-spec.github.io/Angsuran-In-House-Financing/
+📌 Demo Aplikasi: 
 
 Aplikasi berbasis web sederhana untuk mengelola dan mencatat transaksi piutang penjualan rumah dengan skema pembayaran *in-house financing* (angsuran langsung ke pengembang/developer).
 
